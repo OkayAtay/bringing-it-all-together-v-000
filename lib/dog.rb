@@ -67,7 +67,8 @@ class Dog
     binding.pry
     dog = DB[:conn].execute("SELCT * FROM dogs WHERE name = ?, breed = ?", name, breed)
     if !song.empty?
-      
+      dog_data = dog[0]
+      dog = Dog.new(dog_data[0], dog_data[1], dog_data[2]))
     else
       song = self.create(name:name, breed:breed)
     end
