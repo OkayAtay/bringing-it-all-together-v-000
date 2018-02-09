@@ -64,10 +64,10 @@ class Dog
   end
 
   def self.find_or_create_by(name, breed)
+    binding.pry
     if !self.id
       self.create(name:name, breed:breed)
     else
-      binding.pry
       sql = <<-SQL
         SELCT * FROM dogs WHERE name = ?, breed = ?
       SQL
