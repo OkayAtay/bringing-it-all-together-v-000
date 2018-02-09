@@ -66,18 +66,10 @@ class Dog
   def self.find_or_create_by(row)
     binding.pry
     dog = DB[:conn].execute("SELCT * FROM dogs WHERE name = ?, breed = ?", name, breed)
-
-
-    if !self.empty?
-      self.create(name:name, breed:breed)
+    if !song.empty?
+      
     else
-      sql = <<-SQL
-        SELCT * FROM dogs WHERE name = ?, breed = ?
-      SQL
-
-      DB[:conn].execute(sql, name, breed).map do |row|
-          self.new_from_db(row)
-        end.first
+      song = self.create(name:name, breed:breed)
     end
   end
 
