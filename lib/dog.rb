@@ -69,7 +69,10 @@ class Dog
       binding.pry
     else
       sql = <<-SQL
+        SELCT * FROM dogs WHERE name = ?, breed = ?
       SQL
+
+      DB[:conn].execute(sql, name, breed)
     end
   end
 
