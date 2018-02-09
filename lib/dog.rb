@@ -65,8 +65,12 @@ class Dog
 
   def self.find_or_create_by(name, breed)
     binding.pry
+    if !self.id
+      self.create(name:name, breed:breed)
+    else
+      
 
-
+    end
   end
 
 end
