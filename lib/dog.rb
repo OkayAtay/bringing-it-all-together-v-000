@@ -63,7 +63,7 @@ class Dog
       end.first
   end
 
-  def self.find_or_create_by(row)
+  def self.find_or_create_by(name:, breed:)
     #binding.pry
     dog = DB[:conn].execute("SELCT * FROM dogs WHERE name = ?, breed = ?", name, breed)
     if !song.empty?
