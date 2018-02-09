@@ -72,7 +72,9 @@ class Dog
         SELCT * FROM dogs WHERE name = ?, breed = ?
       SQL
 
-      DB[:conn].execute(sql, name, breed)
+      DB[:conn].execute(sql, name, breed).map do |row|
+          self.new_from_db(row)
+        end.first
     end
   end
 
