@@ -69,7 +69,7 @@ class Dog
     if !dog.empty?
       dog_data = dog[0]
       binding.pry
-      dog = Dog.new(dog_data[0], dog_data[1], id:nil)
+      dog = Dog.new(id:dog_data[0], name:dog_data[1], breed:dog_data[2])
     else
       song = self.create(name:name, breed:breed)
     end
