@@ -57,6 +57,10 @@ class Dog
     sql = <<-SQL
       SELECT * FROM dogs where name = ?
     SQL
+
+    DB[:conn].execute(sql, name).map do |row|
+      self.new_from_db(row)
+    end.first
   end
 
   def self.find_by_id(id)
